@@ -78,38 +78,6 @@
 title $text\n
 !endprocedure
 
-!procedure $setLegend($color1, $text1, $color2, $text2, $color3="", $text3="", $color4="", $text4="", $color5="", $text5="", $color6="", $text6="", $color7="", $text7="", $color8="", $text8="", $color9="", $text9="", $color10="", $text10="")
-legend
-    !local $legendText = "<color:" + $color1 + ">█</color> " + $text1
-    !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color2 + ">█</color> " + $text2
-    !if ($text3 != "") && ($color3 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color3 + ">█</color> " + $text3
-    !endif
-    !if ($text4 != "") && ($color4 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color4 + ">█</color> " + $text4
-    !endif
-    !if ($text5 != "") && ($color5 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color5 + ">█</color> " + $text5
-    !endif
-    !if ($text6 != "") && ($color6 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color6 + ">█</color> " + $text6
-    !endif
-    !if ($text7 != "") && ($color7 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color7 + ">█</color> " + $text7
-    !endif
-    !if ($text8 != "") && ($color8 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color8 + ">█</color> " + $text8
-    !endif
-    !if ($text9 != "") && ($color9 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color9 + ">█</color> " + $text9
-    !endif
-    !if ($text10 != "") && ($color10 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color10 + ">█</color> " + $text10
-    !endif
-    $legendText
-end legend
-!endprocedure
-
 skinparam shadowing false
 skinparam componentStyle uml2
 skinparam RoundCorner 4
@@ -256,6 +224,6 @@ hide empty fields
 'top to bottom direction
 
 header AMAZON.COM CONFIDENTIAL\n
-center footer \nCopyright © %date("yyyy"). Amazon.com, Inc. or its affiliates. All Rights Reserved
+center footer \nCopyright © 2020. Amazon.com, Inc. or its affiliates. All Rights Reserved
 
 @enduml
