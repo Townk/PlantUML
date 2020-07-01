@@ -1,0 +1,219 @@
+@startuml
+'' Theme palette
+
+!$themePalettePrimaryLighter = "#FFFFFF"
+!$themePalettePrimaryLight   = "#FAFAFA"
+!$themePalettePrimary        = "#EAEAEA"
+!$themePalettePrimaryDark    = "#999999"
+!$themePalettePrimaryDarker  = "#404344"
+
+!$themePaletteAccentLighter  = "#709499"
+!$themePaletteAccentLight    = "#6C7778"
+!$themePaletteAccent         = "#3D6067"
+!$themePaletteAccentDark     = "#012E37"
+!$themePaletteAccentDarker   = "#001E26"
+
+'' Basic colors
+
+!$themeColorArrow = $themePalettePrimaryDark
+!$themeColorText = $themePalettePrimaryDarker
+!$themeColorBackground = $themePalettePrimary
+!$themeColorContainerBackground = $themePalettePrimaryLight
+!$themeColorBorder = $themePalettePrimaryDark
+!$themeColorAbstract = "#87BBA2"
+!$themeColorData = "#75B9C6"
+!$themeColorClass = "#E76F51"
+!$themeColorEnum = "#B49DC0"
+!$themeColorInterface = "#E9C46A"
+!$themeColorAnnotation = "#FFB06A"
+
+
+'' Text
+
+!$themeTextFont = "Amazon Ember"
+!$themeTextFontMono = "Monospaced"
+
+!$themeTextSizeTitle = 18
+!$themeTextSizeHeader = 10
+!$themeTextSizeFooter = 10
+!$themeTextSizeGroupName = 14
+!$themeTextSizeElementName = 14
+!$themeTextSizeAttributes = 13
+!$themeTextSizeArrowText = 12
+!$themeTextSizeSequenceGroups = 12
+!$themeTextSizeSequenceSeparators = 11
+!$themeTextSizeStereotype = 11
+!$themeTextSizeIcon = 12
+
+
+'' Procedures
+
+!procedure $setFont($size=$themeTextSizeGroupName, $style="normal", $family=$themeTextFont, $color=$themeColorText)
+    FontName $family
+    FontSize $size
+    FontColor $color
+    FontStyle $style
+!endprocedure
+
+!procedure $setShape($bgColor=$themeColorBackground, $color=$themeColorBorder, $thickness=1)
+    BackgroundColor $bgColor
+    BorderColor $color
+    BorderThickness $thickness
+!endprocedure
+
+!procedure $setBorderlessShape($color, $thickness=1)
+    $setShape($color, $color, $thickness)
+!endprocedure
+
+!procedure $setDefaultObject($bgColor=$themeColorBackground, $color=$themeColorBorder, $thickness=1)
+    $setFont()
+    $setShape()
+
+    Stereotype {
+        $setFont($themeTextSizeStereotype)
+    }
+!endprocedure
+
+skinparam shadowing false
+skinparam componentStyle uml2
+skinparam RoundCorner 4
+skinparam wrapWidth 400
+skinparam defaultTextAlignment left
+
+skinparam Header {
+    $setFont($themeTextSizeHeader, $family=$themeTextFontMono, $color=$themePalettePrimaryDark)
+}
+
+skinparam Footer {
+    $setFont($themeTextSizeHeader, $family=$themeTextFontMono, $color=$themePalettePrimaryDark)
+}
+
+skinparam Arrow {
+    Color $themeColorArrow
+    $setFont($themeTextSizeArrowText)
+}
+
+skinparam Frame {
+    $setFont()
+    $setShape($themeColorContainerBackground)
+}
+
+skinparam Rectangle {
+    $setFont()
+    $setShape($themeColorContainerBackground)
+}
+
+skinparam Package {
+    $setFont()
+    $setShape($themeColorContainerBackground)
+}
+
+skinparam Node {
+    $setFont()
+    $setShape($themeColorContainerBackground)
+}
+
+skinparam Cloud {
+    $setFont()
+    $setShape($themeColorContainerBackground)
+}
+
+skinparam CircledCharacter {
+    $setFont($themeTextSizeIcon, "bold", $themeTextFontMono)
+    Radius 10
+}
+
+skinparam SpotChar<<data>> D
+skinparam Stereotype {
+    A {
+        $setBorderlessShape($themeColorAbstract)
+    }
+
+    C<<data>> {
+        $setBorderlessShape($themeColorData)
+    }
+
+    C {
+        $setBorderlessShape($themeColorClass)
+    }
+
+    E {
+        $setBorderlessShape($themeColorEnum)
+    }
+
+    I {
+        $setBorderlessShape($themeColorInterface)
+    }
+
+    N {
+        $setBorderlessShape($themeColorAnnotation)
+    }
+}
+
+skinparam Actor {
+    $setDefaultObject()
+}
+
+skinparam Card {
+    $setDefaultObject()
+}
+
+skinparam Component {
+    $setDefaultObject()
+}
+
+skinparam Boundary {
+    $setDefaultObject()
+}
+
+skinparam Artifact {
+    $setDefaultObject()
+}
+
+skinparam File {
+    $setDefaultObject()
+}
+
+skinparam Interface {
+    $setDefaultObject()
+}
+
+skinparam Class {
+    $setDefaultObject()
+
+    Attribute {
+        $setFont($themeTextSizeAttributes)
+    }
+}
+
+skinparam Object {
+    $setDefaultObject()
+
+    Attribute {
+        $setFont($themeTextSizeAttributes)
+    }
+}
+
+skinparam Activity {
+    $setFont()
+    $setShape()
+
+    Diamond {
+        $setFont()
+        $setShape()
+    }
+
+    BarColor $themeColorArrow
+    EndColor $themeColorArrow
+    StartColor $themeColorArrow
+}
+
+hide <<data>> stereotype
+hide empty methods
+hide empty fields
+
+'top to bottom direction
+
+header AMAZON.COM CONFIDENTIAL\n
+center footer \nCopyright © %date("yyyy"). Amazon.com, Inc. or its affiliates. All Rights Reserved
+@endtuml
