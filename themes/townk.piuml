@@ -1,31 +1,31 @@
 @startuml
 '' Theme palette
 
-!$themePalettePrimaryLighter = "#FFFFFF"
-!$themePalettePrimaryLight   = "#FAFAFA"
-!$themePalettePrimary        = "#EAEAEA"
-!$themePalettePrimaryDark    = "#999999"
-!$themePalettePrimaryDarker  = "#404344"
+!global $themePalettePrimaryLighter = "#FFFFFF"
+!global $themePalettePrimaryLight   = "#FAFAFA"
+!global $themePalettePrimary        = "#EAEAEA"
+!global $themePalettePrimaryDark    = "#999999"
+!global $themePalettePrimaryDarker  = "#404344"
 
-!$themePaletteAccentLighter  = "#709499"
-!$themePaletteAccentLight    = "#6C7778"
-!$themePaletteAccent         = "#3D6067"
-!$themePaletteAccentDark     = "#012E37"
-!$themePaletteAccentDarker   = "#001E26"
+!global $themePaletteAccentLighter  = "#709499"
+!global $themePaletteAccentLight    = "#6C7778"
+!global $themePaletteAccent         = "#3D6067"
+!global $themePaletteAccentDark     = "#012E37"
+!global $themePaletteAccentDarker   = "#001E26"
 
 '' Basic colors
 
-!$themeColorArrow = $themePalettePrimaryDark
-!$themeColorText = $themePalettePrimaryDarker
-!$themeColorBackground = $themePalettePrimary
-!$themeColorContainerBackground = $themePalettePrimaryLight
-!$themeColorBorder = $themePalettePrimaryDark
-!$themeColorAbstract = "#87BBA2"
-!$themeColorData = "#75B9C6"
-!$themeColorClass = "#E76F51"
-!$themeColorEnum = "#B49DC0"
-!$themeColorInterface = "#E9C46A"
-!$themeColorAnnotation = "#FFB06A"
+!global $themeColorArrow = $themePalettePrimaryDark
+!global $themeColorText = $themePalettePrimaryDarker
+!global $themeColorBackground = $themePalettePrimary
+!global $themeColorContainerBackground = $themePalettePrimaryLight
+!global $themeColorBorder = $themePalettePrimaryDark
+!global $themeColorAbstract = "#87BBA2"
+!global $themeColorData = "#75B9C6"
+!global $themeColorClass = "#E76F51"
+!global $themeColorEnum = "#B49DC0"
+!global $themeColorInterface = "#E9C46A"
+!global $themeColorAnnotation = "#FFB06A"
 
 
 '' Text
@@ -74,11 +74,52 @@
     }
 !endprocedure
 
+!procedure $setTitle($text)
+title $text\n
+!endprocedure
+
+!procedure $setLegend($color1, $text1, $color2, $text2, $color3="", $text3="", $color4="", $text4="", $color5="", $text5="", $color6="", $text6="", $color7="", $text7="", $color8="", $text8="", $color9="", $text9="", $color10="", $text10="")
+legend
+    !local $legendText = "<color:" + $color1 + ">█</color> " + $text1
+    !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color2 + ">█</color> " + $text2
+    !if ($text3 != "") && ($color3 != "")
+        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color3 + ">█</color> " + $text3
+    !endif
+    !if ($text4 != "") && ($color4 != "")
+        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color4 + ">█</color> " + $text4
+    !endif
+    !if ($text5 != "") && ($color5 != "")
+        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color5 + ">█</color> " + $text5
+    !endif
+    !if ($text6 != "") && ($color6 != "")
+        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color6 + ">█</color> " + $text6
+    !endif
+    !if ($text7 != "") && ($color7 != "")
+        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color7 + ">█</color> " + $text7
+    !endif
+    !if ($text8 != "") && ($color8 != "")
+        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color8 + ">█</color> " + $text8
+    !endif
+    !if ($text9 != "") && ($color9 != "")
+        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color9 + ">█</color> " + $text9
+    !endif
+    !if ($text10 != "") && ($color10 != "")
+        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color10 + ">█</color> " + $text10
+    !endif
+    $legendText
+end legend
+!endprocedure
+
 skinparam shadowing false
 skinparam componentStyle uml2
 skinparam RoundCorner 4
 skinparam wrapWidth 400
 skinparam defaultTextAlignment left
+
+skinparam Legend {
+    $setShape($themePalettePrimaryLight, $themePalettePrimary)
+    $setFont()
+}
 
 skinparam Header {
     $setFont($themeTextSizeHeader, $family=$themeTextFontMono, $color=$themePalettePrimaryDark)
@@ -216,4 +257,5 @@ hide empty fields
 
 header AMAZON.COM CONFIDENTIAL\n
 center footer \nCopyright © %date("yyyy"). Amazon.com, Inc. or its affiliates. All Rights Reserved
-@endtuml
+
+@enduml
