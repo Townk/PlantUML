@@ -139,6 +139,11 @@ skinparam Frame {
     $setShape($themeColorContainerBackground)
 }
 
+skinparam Database {
+    $setFont()
+    $setShape($themeColorContainerBackground)
+}
+
 skinparam Rectangle {
     $setFont()
     $setShape($themeColorContainerBackground)
