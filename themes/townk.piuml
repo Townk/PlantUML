@@ -272,6 +272,9 @@ skinparam Sequence {
     }
 }
 
+skinparam Usecase {
+    $setDefaultObject()
+}
 
 hide <<data>> stereotype
 hide empty methods
