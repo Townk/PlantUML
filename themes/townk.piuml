@@ -282,7 +282,12 @@ hide empty fields
 
 'top to bottom direction
 
-header AMAZON.COM CONFIDENTIAL\n
-center footer \nCopyright © %date("yyyy"). Amazon.com, Inc. or its affiliates. All Rights Reserved
+!if (%not(%variable_exists("$noheader"))) || (%not($noheadr))
+    header AMAZON.COM CONFIDENTIAL\n
+!endif
+
+!if (%not(%variable_exists("$nofooter"))) || (%not($nofooter))
+    center footer \nCopyright © %date("yyyy"). Amazon.com, Inc. or its affiliates. All Rights Reserved
+!endif
 
 @enduml
