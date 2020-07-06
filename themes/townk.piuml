@@ -254,6 +254,25 @@ skinparam Activity {
     StartColor $themeColorArrow
 }
 
+skinparam Sequence {
+    Box {
+        $setDefaultObject()
+    }
+
+    Delay {
+        $setFont($themeTextSizeSequenceSeparators)
+    }
+
+    LifeLine {
+        $setDefaultObject()
+    }
+
+    Participant {
+        $setDefaultObject()
+    }
+}
+
+
 hide <<data>> stereotype
 hide empty methods
 hide empty fields
