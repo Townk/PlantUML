@@ -20,6 +20,7 @@
 !global $themeColorBackground = $themePalettePrimary
 !global $themeColorContainerBackground = $themePalettePrimaryLight
 !global $themeColorBorder = $themePalettePrimaryDark
+!global $themeColorNote = "#FEFFC2"
 !global $themeColorAbstract = "#87BBA2"
 !global $themeColorData = "#75B9C6"
 !global $themeColorClass = "#E76F51"
@@ -39,6 +40,7 @@
 !$themeTextSizeGroupName = 14
 !$themeTextSizeElementName = 14
 !$themeTextSizeAttributes = 13
+!$themeTextSizeNotes = 13
 !$themeTextSizeArrowText = 12
 !$themeTextSizeSequenceGroups = 12
 !$themeTextSizeSequenceSeparators = 11
@@ -115,6 +117,11 @@ skinparam componentStyle uml2
 skinparam RoundCorner 4
 skinparam wrapWidth 400
 skinparam defaultTextAlignment left
+
+skinparam Note {
+    $setFont($themeTextSizeNotes)
+    $setShape($themeColorNote)
+}
 
 skinparam Legend {
     $setShape($themePalettePrimaryLight, $themePalettePrimary)
