@@ -1,4 +1,7 @@
 @startuml
+
+!$THEME = "elegant"
+
 '' Theme palette
 
 !global $themePalettePrimaryLighter = "#FFFFFF"
