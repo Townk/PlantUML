@@ -1,303 +1,295 @@
-@startuml
-
 !$THEME = "elegant"
 
 '' Theme palette
 
-!global $themePalettePrimaryLighter = "#FFFFFF"
-!global $themePalettePrimaryLight   = "#FAFAFA"
-!global $themePalettePrimary        = "#EAEAEA"
-!global $themePalettePrimaryDark    = "#999999"
-!global $themePalettePrimaryDarker  = "#404344"
+!global $THEME_PALETTE_PRIMARY_LIGHTER = "#FFFFFF"
+!global $THEME_PALETTE_PRIMARY_LIGHT   = "#FAFAFA"
+!global $THEME_PALETTE_PRIMARY        = "#EAEAEA"
+!global $THEME_PALETTE_PRIMARY_DARK    = "#999999"
+!global $THEME_PALETTE_PRIMARY_DARKER  = "#404344"
 
-!global $themePaletteAccentLighter  = "#709499"
-!global $themePaletteAccentLight    = "#6C7778"
-!global $themePaletteAccent         = "#3D6067"
-!global $themePaletteAccentDark     = "#012E37"
-!global $themePaletteAccentDarker   = "#001E26"
+!global $THEME_PALETTE_ACCENT_LIGHTER  = "#709499"
+!global $THEME_PALETTE_ACCENT_LIGHT    = "#6C7778"
+!global $THEME_PALETTE_ACCENT         = "#3D6067"
+!global $THEME_PALETTE_ACCENT_DARK     = "#012E37"
+!global $THEME_PALETTE_ACCENT_DARKER   = "#001E26"
 
 '' Basic colors
 
-!global $themeColorArrow = $themePalettePrimaryDark
-!global $themeColorText = $themePalettePrimaryDarker
-!global $themeColorBackground = $themePalettePrimary
-!global $themeColorContainerBackground = $themePalettePrimaryLight
-!global $themeColorBorder = $themePalettePrimaryDark
-!global $themeColorNote = "#FEFFC2"
-!global $themeColorAbstract = "#87BBA2"
-!global $themeColorData = "#75B9C6"
-!global $themeColorClass = "#E76F51"
-!global $themeColorEnum = "#B49DC0"
-!global $themeColorInterface = "#E9C46A"
-!global $themeColorAnnotation = "#FFB06A"
-
+!global $THEME_COLOR_ARROW = $THEME_PALETTE_PRIMARY_DARK
+!global $THEME_COLOR_TEXT = $THEME_PALETTE_PRIMARY_DARKER
+!global $THEME_COLOR_BACKGROUND = $THEME_PALETTE_PRIMARY
+!global $THEME_COLOR_CONTAINER_BACKGROUND = $THEME_PALE_TTE_PRIMARY_LIGHT
+!global $THEME_COLOR_BORDER = $THEME_PALETTE_PRIMARY_DARK
+!global $THEME_COLOR_NOTE = "#FEFFC2"
+!global $THEME_COLOR_ABSTRACT = "#87BBA2"
+!global $THEME_COLOR_DATA = "#75B9C6"
+!global $THEME_COLOR_CLASS = "#E76F51"
+!global $THEME_COLOR_ENUM = "#B49DC0"
+!global $THEME_COLOR_INTERFACE = "#E9C46A"
+!global $THEME_COLOR_ANNOTATION = "#FFB06A"
 
 '' Text
 
-!$themeTextFont = "Amazon Ember"
-!$themeTextFontMono = "Monospaced"
+!$THEME_TEXT_FONT = "Amazon Ember"
+!$THEME_TEXT_FONT_MONO = "Monospaced"
 
-!$themeTextSizeTitle = 18
-!$themeTextSizeHeader = 10
-!$themeTextSizeFooter = 10
-!$themeTextSizeGroupName = 14
-!$themeTextSizeElementName = 14
-!$themeTextSizeAttributes = 13
-!$themeTextSizeNotes = 13
-!$themeTextSizeArrowText = 12
-!$themeTextSizeSequenceGroups = 12
-!$themeTextSizeSequenceSeparators = 11
-!$themeTextSizeStereotype = 11
-!$themeTextSizeIcon = 12
+!$THEME_TEXT_SIZE_TITLE = 18
+!$THEME_TEXT_SIZE_HEADER = 10
+!$THEME_TEXT_SIZE_FOOTER = 10
+!$THEME_TEXT_SIZE_GROUP_NAME = 14
+!$THEME_TEXT_SIZE_ELEMENT_NAME = 14
+!$THEME_TEXT_SIZE_ATTRIBUTES = 13
+!$THEME_TEXT_SIZE_NOTES = 13
+!$THEME_TEXT_SIZE_ARROW_TEXT = 12
+!$THEME_TEXT_SIZE_SEQUENCE_GROUPS = 12
+!$THEME_TEXT_SIZE_SEQUENCE_SEPARATORS = 11
+!$THEME_TEXT_SIZE_STEREOTYPE = 11
+!$THEME_TEXT_SIZE_ICON = 12
 
 
 '' Procedures
 
-!procedure $setFont($size=$themeTextSizeGroupName, $style="normal", $family=$themeTextFont, $color=$themeColorText)
+!procedure $font_scheme($size=$THEME_TEXT_SIZE_GROUP_NAME, $style="normal", $family=$THEME_TEXT_FONT, $color=$THEME_COLOR_TEXT)
     FontName $family
     FontSize $size
     FontColor $color
     FontStyle $style
 !endprocedure
 
-!procedure $setShape($bgColor=$themeColorBackground, $color=$themeColorBorder, $thickness=1)
+!procedure $shape_scheme($bgColor=$THEME_COLOR_BACKGROUND, $color=$THEME_COLOR_BORDER, $thickness=1)
     BackgroundColor $bgColor
     BorderColor $color
     BorderThickness $thickness
 !endprocedure
 
-!procedure $setBorderlessShape($color, $thickness=1)
-    $setShape($color, $color, $thickness)
+!procedure $borderless_shape_scheme($color, $thickness=1)
+    $shape_scheme($color, $color, $thickness)
 !endprocedure
 
-!procedure $setDefaultObject($bgColor=$themeColorBackground, $color=$themeColorBorder, $thickness=1)
-    $setFont()
-    $setShape()
+!procedure $primary_scheme($bgColor=$THEME_COLOR_BACKGROUND, $color=$THEME_COLOR_BORDER, $thickness=1)
+    $font_scheme()
+    $shape_scheme()
 
     Stereotype {
-        $setFont($themeTextSizeStereotype)
+        $font_scheme($THEME_TEXT_SIZE_STEREOTYPE)
     }
 !endprocedure
 
-!procedure $setTitle($text)
+!procedure $set_title($text)
 title $text\n
 !endprocedure
 
-!procedure $setLegend($color1, $text1, $color2, $text2, $color3="", $text3="", $color4="", $text4="", $color5="", $text5="", $color6="", $text6="", $color7="", $text7="", $color8="", $text8="", $color9="", $text9="", $color10="", $text10="")
+!procedure $set_legend($color1, $text1, $color2, $text2, $color3="", $text3="", $color4="", $text4="", $color5="", $text5="", $color6="", $text6="", $color7="", $text7="", $color8="", $text8="", $color9="", $text9="", $color10="", $text10="")
 legend
     !local $legendText = "<color:" + $color1 + ">█</color> " + $text1
-    !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color2 + ">█</color> " + $text2
+    !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color2 + ">█</color> " + $text2
     !if ($text3 != "") && ($color3 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color3 + ">█</color> " + $text3
+        !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color3 + ">█</color> " + $text3
     !endif
     !if ($text4 != "") && ($color4 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color4 + ">█</color> " + $text4
+        !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color4 + ">█</color> " + $text4
     !endif
     !if ($text5 != "") && ($color5 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color5 + ">█</color> " + $text5
+        !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color5 + ">█</color> " + $text5
     !endif
     !if ($text6 != "") && ($color6 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color6 + ">█</color> " + $text6
+        !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color6 + ">█</color> " + $text6
     !endif
     !if ($text7 != "") && ($color7 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color7 + ">█</color> " + $text7
+        !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color7 + ">█</color> " + $text7
     !endif
     !if ($text8 != "") && ($color8 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color8 + ">█</color> " + $text8
+        !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color8 + ">█</color> " + $text8
     !endif
     !if ($text9 != "") && ($color9 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color9 + ">█</color> " + $text9
+        !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color9 + ">█</color> " + $text9
     !endif
     !if ($text10 != "") && ($color10 != "")
-        !local $legendText = $legendText + " <color:" + $themePalettePrimary + ">|</color> <color:" + $color10 + ">█</color> " + $text10
+        !local $legendText = $legendText + " <color:" + $THEME_PALETTE_PRIMARY + ">|</color> <color:" + $color10 + ">█</color> " + $text10
     !endif
     $legendText
 end legend
 !endprocedure
 
+skinparam useBetaStyle false
 skinparam shadowing false
 skinparam componentStyle uml2
 skinparam RoundCorner 4
 skinparam wrapWidth 400
 skinparam defaultTextAlignment left
+skinparam backgroundColor $THEME_PALETTE_PRIMARY_LIGHTER
 
 skinparam Note {
-    $setFont($themeTextSizeNotes)
-    $setShape($themeColorNote)
+    $font_scheme($THEME_TEXT_SIZE_NOTES)
+    $shape_scheme($THEME_COLOR_NOTE)
 }
 
 skinparam Legend {
-    $setShape($themePalettePrimaryLight, $themePalettePrimary)
-    $setFont()
+    $shape_scheme($THEME_PALETTE_PRIMARY_LIGHT, $THEME_PALETTE_PRIMARY)
+    $font_scheme()
 }
 
 skinparam Header {
-    $setFont($themeTextSizeHeader, $family=$themeTextFontMono, $color=$themePalettePrimaryDark)
+    $font_scheme($THEME_TEXT_SIZE_HEADER, $family=$THEME_TEXT_FONT_MONO, $color=$THEME_PALETTE_PRIMARY_DARK)
 }
 
 skinparam Footer {
-    $setFont($themeTextSizeHeader, $family=$themeTextFontMono, $color=$themePalettePrimaryDark)
+    $font_scheme($THEME_TEXT_SIZE_HEADER, $family=$THEME_TEXT_FONT_MONO, $color=$THEME_PALETTE_PRIMARY_DARK)
 }
 
 skinparam Arrow {
-    Color $themeColorArrow
-    $setFont($themeTextSizeArrowText)
+    Color $THEME_COLOR_ARROW
+    $font_scheme($THEME_TEXT_SIZE_ARROW_TEXT)
 }
 
 skinparam Frame {
-    $setFont()
-    $setShape($themeColorContainerBackground)
+    $font_scheme()
+    $shape_scheme($THEME_COLOR_CONTAINER_BACKGROUND)
 }
 
 skinparam Database {
-    $setFont()
-    $setShape($themeColorContainerBackground)
+    $font_scheme()
+    $shape_scheme($THEME_COLOR_CONTAINER_BACKGROUND)
 }
 
 skinparam Rectangle {
-    $setFont()
-    $setShape($themeColorContainerBackground)
+    $font_scheme()
+    $shape_scheme($THEME_COLOR_CONTAINER_BACKGROUND)
 }
 
 skinparam Package {
-    $setFont()
-    $setShape($themeColorContainerBackground)
+    $font_scheme()
+    $shape_scheme($THEME_COLOR_CONTAINER_BACKGROUND)
 }
 
 skinparam Node {
-    $setFont()
-    $setShape($themeColorContainerBackground)
+    $font_scheme()
+    $shape_scheme($THEME_COLOR_CONTAINER_BACKGROUND)
 }
 
 skinparam Cloud {
-    $setFont()
-    $setShape($themeColorContainerBackground)
+    $font_scheme()
+    $shape_scheme($THEME_COLOR_CONTAINER_BACKGROUND)
 }
 
 skinparam CircledCharacter {
-    $setFont($themeTextSizeIcon, "bold", $themeTextFontMono)
+    $font_scheme($THEME_TEXT_SIZE_ICON, "bold", $THEME_TEXT_FONT_MONO)
     Radius 10
 }
 
 skinparam SpotChar<<data>> D
 skinparam Stereotype {
     A {
-        $setBorderlessShape($themeColorAbstract)
+        $borderless_shape_scheme($THEME_COLOR_ABSTRACT)
     }
 
     C<<data>> {
-        $setBorderlessShape($themeColorData)
+        $borderless_shape_scheme($THEME_COLOR_DATA)
     }
 
     C {
-        $setBorderlessShape($themeColorClass)
+        $borderless_shape_scheme($THEME_COLOR_CLASS)
     }
 
     E {
-        $setBorderlessShape($themeColorEnum)
+        $borderless_shape_scheme($THEME_COLOR_ENUM)
     }
 
     I {
-        $setBorderlessShape($themeColorInterface)
+        $borderless_shape_scheme($THEME_COLOR_INTERFACE)
     }
 
     N {
-        $setBorderlessShape($themeColorAnnotation)
+        $borderless_shape_scheme($THEME_COLOR_ANNOTATION)
     }
 }
 
 skinparam Actor {
-    $setDefaultObject()
+    $primary_scheme()
 }
 
 skinparam Card {
-    $setDefaultObject()
+    $primary_scheme()
 }
 
 skinparam Component {
-    $setDefaultObject()
+    $primary_scheme()
 }
 
 skinparam Boundary {
-    $setDefaultObject()
+    $primary_scheme()
 }
 
 skinparam Artifact {
-    $setDefaultObject()
+    $primary_scheme()
 }
 
 skinparam File {
-    $setDefaultObject()
+    $primary_scheme()
 }
 
 skinparam Interface {
-    $setDefaultObject()
+    $primary_scheme()
 }
 
 skinparam Class {
-    $setDefaultObject()
+    $primary_scheme()
 
     Attribute {
-        $setFont($themeTextSizeAttributes)
+        $font_scheme($THEME_TEXT_SIZE_ATTRIBUTES)
     }
 }
 
 skinparam Object {
-    $setDefaultObject()
+    $primary_scheme()
 
     Attribute {
-        $setFont($themeTextSizeAttributes)
+        $font_scheme($THEME_TEXT_SIZE_ATTRIBUTES)
     }
 }
 
 skinparam Activity {
-    $setFont()
-    $setShape()
+    $font_scheme()
+    $shape_scheme()
 
     Diamond {
-        $setFont()
-        $setShape()
+        $font_scheme()
+        $shape_scheme()
     }
 
-    BarColor $themeColorArrow
-    EndColor $themeColorArrow
-    StartColor $themeColorArrow
+    BarColor $THEME_COLOR_ARROW
+    EndColor $THEME_COLOR_ARROW
+    StartColor $THEME_COLOR_ARROW
 }
 
 skinparam Sequence {
     Box {
-        $setDefaultObject()
+        $primary_scheme()
     }
 
     Delay {
-        $setFont($themeTextSizeSequenceSeparators)
+        $font_scheme($THEME_TEXT_SIZE_SEQUENCE_SEPARATORS)
     }
 
     LifeLine {
-        $setDefaultObject()
+        $primary_scheme()
     }
 
     Participant {
-        $setDefaultObject()
+        $primary_scheme()
     }
 }
 
 skinparam Usecase {
-    $setDefaultObject()
+    $primary_scheme()
 }
 
 hide <<data>> stereotype
 hide empty methods
 hide empty fields
 
-'top to bottom direction
-
-!if (%not(%variable_exists("$noheader"))) || (%not($noheadr))
-    header AMAZON.COM CONFIDENTIAL\n
+!if %variable_exists("COPYRIGHT_OWNER")
+    header %upper(COPYRIGHT_OWNER) CONFIDENTIAL\n
+    center footer \nCopyright © %date("yyyy"). COPYRIGHT_OWNER, Inc. or its affiliates. All Rights Reserved
 !endif
-
-!if (%not(%variable_exists("$nofooter"))) || (%not($nofooter))
-    center footer \nCopyright © %date("yyyy"). Amazon.com, Inc. or its affiliates. All Rights Reserved
-!endif
-
-@enduml
