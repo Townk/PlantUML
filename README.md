@@ -19,7 +19,20 @@ If you want to add a copyright header and footer, you can set the `COPYRIGHT_OWN
 @startuml
 !COPYRIGHT_OWNER = "Amazon.com"
 
-!theme elegant from /Users/thiagoa/workplace/personal/plantuml/plantumllib/themes/elegant
+!theme elegant-light from https://raw.githubusercontent.com/Townk/PlantUML/master/themes
+
+' Start your diagram here
+
+@enduml
+```
+
+If the PlantUML version you have available is before `1.2021.6`, you can still use the themes in this repository with the pre-processor `!include`, for instance:
+
+``` puml
+@startuml
+!COPYRIGHT_OWNER = "Amazon.com"
+
+!include https://raw.githubusercontent.com/Townk/PlantUML/master/themes/puml-theme-elegant-light.puml
 
 ' Start your diagram here
 
