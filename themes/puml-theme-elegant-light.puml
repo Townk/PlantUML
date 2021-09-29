@@ -153,6 +153,14 @@ skinparam Database {
     $shape_scheme($THEME_COLOR_CONTAINER_BACKGROUND)
 }
 
+skinparam Entity {
+    $primary_scheme()
+}
+
+skinparam Queue {
+    $primary_scheme()
+}
+
 skinparam Rectangle {
     $font_scheme()
     $shape_scheme($THEME_COLOR_CONTAINER_BACKGROUND)
