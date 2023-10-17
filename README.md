@@ -5,7 +5,7 @@ This repository is my personal library of PlantUML themes.
 ## Usage
 
 ``` text
-!theme elegant from https://raw.githubusercontent.com/Townk/plantumllib/master/themes
+!theme elegant from https://raw.githubusercontent.com/Townk/PlantUML/master/themes
 ```
 
 Once you add this line to your PlantUML diagram, you can use some helper functions to define extra content on your diagram:
@@ -19,7 +19,7 @@ If you want to add a copyright header and footer, you can set the `COPYRIGHT_OWN
 @startuml
 !COPYRIGHT_OWNER = "Amazon.com"
 
-!theme elegant-light from https://raw.githubusercontent.com/Townk/PlantUML/master/themes
+!theme elegant from https://raw.githubusercontent.com/Townk/PlantUML/master/themes
 
 ' Start your diagram here
 
